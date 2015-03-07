@@ -1,0 +1,55 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+/*
+By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total 
+from top to bottom is 23. The path is denoted by numbers in bold.
+
+          3 
+         7 4 
+        2 4 6 
+       8 5 9 3
+
+That is, 3+7+4+9=23.
+
+Find the maximum total from top to bottom of the triangle given in input.
+*/
+
+using namespace std;
+
+
+int main() {
+    system("cls");
+    int a[100][100],t,k=0,n,sum,sum1[10],i,j,l=0;
+    cout<<"\nNo. of testcases:";
+    cin>>t; 
+    while(t!=0){
+          sum=0;
+        cout<<"\nEnter the number of rows:";
+        fflush(stdin);
+        cin>>n;
+        cout<<"\nEnter the input:";
+        for(i=1;i<=n;i++){
+                          for(j=1;j<=i;j++){
+                                             cin>>a[i][j];                                                                 
+                                             if(i==1&&j==1){ 
+                                             sum=sum+a[1][1];
+                                              }
+                                             else if(i-j==1){                
+                                             sum=sum+a[i][j];
+                                              }
+                                            }
+          }
+        sum1[k]=sum;
+        k++;
+        t--;
+    }
+   while(l<k){
+       cout<<"The sum is:"<<sum1[l]<<endl;
+       l++;
+   }   
+    system("pause");
+    return 0;
+}
